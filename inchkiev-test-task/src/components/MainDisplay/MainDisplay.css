@@ -33,11 +33,14 @@
   border: none;
   background-repeat: no-repeat;
   background-position: center;
+  transition: border transform;
+  transition-duration: 0.5s;
 }
 .main__home-button:hover,
 .main__reload-button:hover {
   cursor: pointer;
   border: 2px solid #ff969d;
+  transform: scale(1.2);
 }
 
 .main__params {
@@ -151,4 +154,35 @@
 }
 .main__med-btn-3 {
   background: linear-gradient(90deg, #FFD748 0.02%, rgba(195, 199, 11, 0.96) 99.97%, #CAC6AB 99.98%, #D3E9E1 99.99%);
+}
+
+@media (max-width: 1024px) {
+  .main__game {
+    padding: 30% 3% 5% 3%;
+  }
+
+  .main__sidebar-buttons {
+    margin-bottom: 120%;
+  }
+
+  .main__counters {
+    flex-direction: column;
+  }
+
+  .main__sad-counter,
+  .main__happy-counter,
+  .main__heart-counter {
+    width: 70%;
+  }
+
+  .main__heart-counter {
+    margin-top: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .main__params-text {
+    font-size: 28px;
+  }
 }
