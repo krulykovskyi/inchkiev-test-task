@@ -122,47 +122,6 @@
   justify-content: space-between;
 }
 
-.main__patient-card {
-  --card-height: 500px;
-  --card-width: calc(var(--card-height) * 0.915);
-  align-self: center;
-  height: var(--card-height);
-  width: var(--card-width);
-  border-radius: 40px;
-  box-shadow: 0px 0px 40px 0px #7F7F7F66;
-}
-
-.main__patient-photo {
-  --photo-height: calc(var(--card-height) * 0.593);
-  height: var(--photo-height);
-  width: (var(--card-width));
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  background-position: center;
-  background-size: contain;
-}
-
-.main__patient-info {
-  margin: 0 auto;
-  padding-top: 15px;
-  display: flex;
-  flex-direction: column;
-  width: calc(var(--card-width) * 0.8);
-}
-
-.main__patient-name {
-  font-family: 'AvenirNextCyr-Medium';
-  font-size: 28px;
-  color: #8E9AD5;
-  margin-bottom: 8px;
-}
-
-.main__patient-text {
-  font-family: 'AvenirNextCyr-UltraLight';
-  font-weight: 700;
-  color: #424242;
-}
-
 .main__medications-btns {
   display: flex;
   justify-content: space-between;

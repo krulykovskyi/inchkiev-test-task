@@ -5,7 +5,10 @@
         <div class="cover__circle-content">
           <h4 class="cover__greetings">Добро пожаловать в игру</h4>
           <h1 class="cover__game-name">Помоги <br> ФАРМАЦЕВТУ</h1>
-          <button class="cover__start-btn">
+          <button
+            @click="startGame"
+            class="cover__start-btn"
+          >
             Начать
           </button>
         </div>
@@ -20,6 +23,11 @@ export default {
   data() {
     return {
     };
+  },
+  methods: {
+    startGame() {
+      this.$emit('start');
+    },
   },
 };
 </script>

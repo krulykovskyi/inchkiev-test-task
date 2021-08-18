@@ -1,54 +1,55 @@
 <template>
-  <!-- <div>
-    <button @click="addLike">Like</button>
-    <button @click="addDislike">Dislike</button>
-  </div>
-  <div>
-    count of likes: <strong>{{ likes }}</strong>
-  </div>
-  <div>
-    count of dislikes: <strong>{{ dislikes }}</strong>
-  </div> -->
-  <PostForm
-    @create="createPost"
+  <CoverDisplay
+    v-if="!isGameStarted"
+    @start="startGame"
   />
-  <PostList
-    :posts="posts"
+  <MainDisplay
+    v-else
+    @end="endGame"
+    :queue="queue"
   />
-  <CoverDisplay />
-  <MainDisplay />
-  <FinalDisplay />
+  <FinalDisplay
+    v-if="isGameEnded"
+  />
 </template>
 
 <script>
-import PostForm from './components/PostForm.vue';
-import PostList from './components/PostList.vue';
 import CoverDisplay from './components/CoverDisplay/CoverDisplay.vue';
 import MainDisplay from './components/MainDisplay/MainDisplay.vue';
 import FinalDisplay from './components/FinalDisplay/FinalDisplay.vue';
 
 export default {
   components: {
-    PostForm,
-    PostList,
     CoverDisplay,
     MainDisplay,
     FinalDisplay,
   },
   data() {
     return {
-      posts: [
-        { id: 1, title: 'JavaScript', body: 'info about this post' },
-        { id: 2, title: 'C++', body: 'info about this post' },
-        { id: 3, title: 'Python', body: 'info about this post' },
+      queue: [
+        {
+          id: 1, name: '', text: '', imgUrl: '',
+        },
+        {
+          id: 2, name: '', text: '', imgUrl: '',
+        },
+        {
+          id: 3, name: '', text: '', imgUrl: '',
+        },
+        {
+          id: 4, name: '', text: '', imgUrl: '',
+        },
+        {
+          id: 5, name: '', text: '', imgUrl: '',
+        },
       ],
-      title: '',
-      body: '',
+      isGameStarted: false, //+
+      isGameEnded: false,
     };
   },
   methods: {
-    createPost(post) {
-      this.posts.push(post);
+    startGame() {
+      this.isGameStarted = true;
     },
   },
 };

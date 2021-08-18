@@ -1,0 +1,40 @@
+.patient-card {
+  --card-height: 500px;
+  --card-width: calc(var(--card-height) * 0.915);
+  align-self: center;
+  height: var(--card-height);
+  width: var(--card-width);
+  border-radius: 40px;
+  box-shadow: 0px 0px 40px 0px #7F7F7F66;
+}
+
+.patient-card__photo {
+  --photo-height: calc(var(--card-height) * 0.593);
+  height: var(--photo-height);
+  width: (var(--card-width));
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background-position: center;
+  background-size: contain;
+}
+
+.patient-card__info {
+  margin: 0 auto;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--card-width) * 0.8);
+}
+
+.patient-card__name {
+  font-family: 'AvenirNextCyr-Medium';
+  font-size: 28px;
+  color: #8E9AD5;
+  margin-bottom: 8px;
+}
+
+.patient-card__text {
+  font-family: 'AvenirNextCyr-UltraLight';
+  font-weight: 700;
+  color: #424242;
+}

@@ -31,16 +31,10 @@
       </div>
     </div>
     <div class="main__game">
-      <div class="main__patient-card">
-        <img class="main__patient-photo" src="../../images/image.jpg" alt="patient">
-        <span class="main__patient-info">
-          <p class="main__patient-name">Валентина, 75 років</p>
-          <p class="main__patient-text">
-            Дитя, дай бабусі ліки від тиску за цим рецептом, але не дорогих, тих, що дешевші!
-          </p>
-        </span>
-      </div>
-       <div class="main__medications-btns">
+      <PatientCard
+        :patient="patient"
+      />
+      <div class="main__medications-btns">
         <button class="main__med-btn-1">
           Препарат 1
         </button>
@@ -50,14 +44,19 @@
         <button class="main__med-btn-3">
           Препарат 3
         </button>
-       </div>
+      </div>
     </div>
   </div>
 
 </template>
 
 <script>
+import PatientCard from '../PatientCard/PatientCard.vue';
+
 export default {
+  components: {
+    PatientCard,
+  },
   data() {
     return {
     };
