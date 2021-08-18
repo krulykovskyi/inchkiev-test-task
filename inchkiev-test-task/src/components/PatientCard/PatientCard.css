@@ -38,3 +38,8 @@
   font-weight: 700;
   color: #424242;
 }
+
+.go-left {
+  animation-duration: .5s;
+  animation-name: slide-left;
+}

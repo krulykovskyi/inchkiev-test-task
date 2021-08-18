@@ -1,24 +1,6 @@
-# inchkiev-test-task
+# TT for INCHKIEV
 
-## Project setup
-```
-npm install
-```
+- Приложение позволяющее выписывать один из трех препаратов каждому из пяти пациентов. Так же подсчет и отображение количества продаж в реальном времени + отображение финального результата в процентном соотношении.
+Устройства: Ipad, IpadPro, Win(1440 x 1024)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [DEMO LINK](https://krulykovskyi.github.io/inchkiev-test-task/)
