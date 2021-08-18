@@ -6,15 +6,15 @@
     <div class="final__results">
       <div class="final__results-nums">
         <div class="final__result-1">
-          <p class="percents">100%</p>
+          <p class="percents">{{results[0]}}%</p>
           <p class="preparat">Препарат 1</p>
         </div>
         <div class="final__result-2">
-          <p class="percents">100%</p>
+          <p class="percents">{{results[1]}}%</p>
           <p class="preparat">Препарат 2</p>
         </div>
         <div class="final__result-3">
-          <p class="percents">100%</p>
+          <p class="percents">{{results[2]}}%</p>
           <p class="preparat">Препарат 3</p>
         </div>
       </div>
@@ -37,8 +37,22 @@
 
 <script>
 export default {
+  props: {
+    medicamentsSales: {
+      type: Object,
+      required: true,
+    },
+  },
+  mounted() {
+    const salesCount = this.medicamentsSales.reduce((acc, el) => acc + el, 0);
+
+    this.results[0] = Math.round((100 / salesCount) * this.medicamentsSales[0]);
+    this.results[1] = Math.round((100 / salesCount) * this.medicamentsSales[1]);
+    this.results[2] = Math.round((100 / salesCount) * this.medicamentsSales[2]);
+  },
   data() {
     return {
+      results: [],
     };
   },
 };

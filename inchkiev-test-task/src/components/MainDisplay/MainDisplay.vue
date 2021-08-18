@@ -10,23 +10,23 @@
         <div class="main__counters">
           <div class="main__sad-counter">
             <img class="counter-img" src="../../images/sad_icon.svg" alt="">
-            <span>15</span>
+            <span>{{medicamentsSales[0]}}</span>
           </div>
           <div class="main__happy-counter">
             <img class="counter-img" src="../../images/happy_icon.svg" alt="">
-            <span>15</span>
+            <span>{{medicamentsSales[1]}}</span>
           </div>
           <div class="main__heart-counter">
             <img class="counter-img" src="../../images/heart_icon.svg" alt="">
-            <span>15</span>
+            <span>{{medicamentsSales[2]}}</span>
           </div>
         </div>
       </div>
       <div class="main__sidebar-queue-info">
         <p class="main__sidebar-queue-text">Осталось в очереди:</p>
         <p class="main__sidebar-queue-numbers">
-          <strong>14</strong>
-          /15
+          <strong>{{queue.length - patient.id}}</strong>
+          /{{queue.length}}
         </p>
       </div>
     </div>
@@ -35,13 +35,19 @@
         :patient="patient"
       />
       <div class="main__medications-btns">
-        <button class="main__med-btn-1">
+        <button
+          @click="sale(0)"
+          class="main__med-btn-1">
           Препарат 1
         </button>
-        <button class="main__med-btn-2">
+        <button
+          @click="sale(1)"
+          class="main__med-btn-2">
           Препарат 2
         </button>
-        <button class="main__med-btn-3">
+        <button
+          @click="sale(2)"
+          class="main__med-btn-3">
           Препарат 3
         </button>
       </div>
@@ -57,9 +63,31 @@ export default {
   components: {
     PatientCard,
   },
+  props: {
+    queue: {
+      type: Array,
+      required: true,
+    },
+    medicamentsSales: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
+      patient: this.queue[0],
     };
+  },
+  methods: {
+    sale(num) {
+      this.$emit('sale', num);
+
+      const salesCount = this.medicamentsSales.reduce((acc, el) => acc + el, 0);
+
+      if (salesCount === this.queue.length) {
+        this.$emit('end');
+      }
+    },
   },
 };
 </script>
