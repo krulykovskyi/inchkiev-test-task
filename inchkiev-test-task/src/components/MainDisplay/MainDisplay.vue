@@ -2,8 +2,14 @@
   <div class="main">
     <div class="main__sidebar">
       <div class="main__sidebar-buttons">
-        <button class="main__home-button"></button>
-        <button class="main__reload-button"></button>
+        <button
+          @click="this.$emit('restart')"
+          class="main__home-button"
+        />
+        <button
+          @click="this.$emit('restart')"
+          class="main__reload-button"
+        />
       </div>
       <div class="main__params">
         <h3 class="main__params-text">Параметры:</h3>
@@ -33,6 +39,7 @@
     <div class="main__game">
       <PatientCard
         :patient="patient"
+        :patientIndex="patientIndex"
       />
       <div class="main__medications-btns">
         <button
@@ -74,8 +81,11 @@ export default {
     },
   },
   data() {
+    const patientIndex = 0;
+
     return {
-      patient: this.queue[0],
+      patientIndex,
+      patient: this.queue[patientIndex],
     };
   },
   methods: {
@@ -87,6 +97,9 @@ export default {
       if (salesCount === this.queue.length) {
         this.$emit('end');
       }
+
+      this.patientIndex += 1;
+      this.patient = this.queue[this.patientIndex];
     },
   },
 };

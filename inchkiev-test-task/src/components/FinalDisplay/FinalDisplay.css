@@ -15,6 +15,12 @@
   border: none;
   background-repeat: no-repeat;
   background-position: center;
+  transition: transform 0.5s;
+}
+
+.final__home-btn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .final__results {
@@ -91,10 +97,13 @@
   background: linear-gradient(90deg, #D9D9D9 0%, #A1A1A1 100%);
   border: none;
   border-radius: 100px;
+  transition: transform 0.5s;
+
 }
 
 .your-btn:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .final__img-block {

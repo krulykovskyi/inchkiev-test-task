@@ -1,7 +1,10 @@
 <template>
   <div class="final">
     <div class="final__sidebar">
-      <button class="final__home-btn" />
+      <button
+        @click="this.$emit('restart')"
+        class="final__home-btn"
+      />
     </div>
     <div class="final__results">
       <div class="final__results-nums">
@@ -25,7 +28,10 @@
           Это тестовое задание, так что не будем углубляться в глубины проблем фармацевтов
         </span>
       </div>
-      <button class="your-btn">
+      <button
+        @click="this.$emit('restart')"
+        class="your-btn"
+      >
         Попробовать еще
       </button>
     </div>

@@ -9,10 +9,12 @@
     :queue="queue"
     :medicamentsSales="medicamentsSales"
     @end="endGame"
+    @restart="restartGame"
   />
   <FinalDisplay
     v-else
     :medicamentsSales="medicamentsSales"
+    @restart="restartGame"
   />
 </template>
 
@@ -34,7 +36,7 @@ export default {
           id: 1,
           name: 'Марія, 19 років',
           text: 'Бабуся приймає брендовий препарат від болю в суглобах, він допомагає, але занадто дорогий. У Вас є якісний аналог з нижчою ціною? Якщо ні — давайте бренд.',
-          imgUrl: '../../images/Mariya.jpg',
+          imgUrl: '/images/Mariya.jpg',
         },
         {
           id: 2,
@@ -74,6 +76,12 @@ export default {
 
     endGame() {
       this.isGameEnded = true;
+    },
+
+    restartGame() {
+      this.isGameStarted = false;
+      this.isGameEnded = false;
+      this.medicamentsSales = [0, 0, 0];
     },
 
     sale(num) {
